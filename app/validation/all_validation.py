@@ -59,7 +59,7 @@ class Validation:
                     print("Passwords do not match.")
                 else:
                     return password
-            except ValueError as e:
+            except Exception as e:
                 print("Something went wrong.")
                 path=Logs.password
                 ReadWrite.log_error(path,str(e))     
