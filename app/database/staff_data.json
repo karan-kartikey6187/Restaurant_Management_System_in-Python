@@ -1,0 +1,65 @@
+[
+    {
+        "id": "bc83050",
+        "name": "karan",
+        "email": "karan12@gmail.com",
+        "contact": 4565453423,
+        "experience": 12,
+        "password": "karan@12",
+        "role": "Admin"
+    },
+    {
+        "id": "1f1d7ab",
+        "name": "rahul",
+        "email": "rahul12@gmail.com",
+        "contact": 3254675665,
+        "experience": 4,
+        "password": "rahul#12",
+        "role": "Staff"
+    },
+    {
+        "id": "7f6ce5d",
+        "name": "diya",
+        "email": "diya109@gmail.com",
+        "contact": 9545342343,
+        "experience": 4,
+        "password": "diya@123",
+        "role": "Staff"
+    },
+    {
+        "id": "5c355d0",
+        "name": "manoj",
+        "email": "manoj54@gmail.com",
+        "contact": 5465764565,
+        "experience": 3,
+        "password": "manoj@1221",
+        "role": "Staff"
+    },
+    {
+        "id": "c6b46e7",
+        "name": "pawan",
+        "email": "pawan544@gmail.com",
+        "contact": 4345345465,
+        "experience": 2,
+        "password": "pawan@343",
+        "role": "Staff"
+    },
+    {
+        "id": "0d862c3",
+        "name": "neeraj",
+        "email": "neeraj34@gmail.com",
+        "contact": 5476873423,
+        "experience": 3,
+        "password": "neeraj%23",
+        "role": "Staff"
+    },
+    {
+        "id": "b840449",
+        "name": "riya",
+        "email": "riya43@gmail.com",
+        "contact": 4534236543,
+        "experience": 4,
+        "password": "riya09@",
+        "role": "Staff"
+    }
+]
