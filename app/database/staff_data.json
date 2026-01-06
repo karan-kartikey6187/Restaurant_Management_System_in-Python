@@ -1,65 +1,65 @@
 [
     {
-        "id": "bc83050",
-        "name": "karan",
-        "email": "karan12@gmail.com",
-        "contact": 4565453423,
-        "experience": 12,
-        "password": "karan@12",
+        "id": "da3b935",
+        "name": "navneet",
+        "email": "navneet23@gmail.com",
+        "contact": 4545432323,
+        "experience": 2,
+        "password": "navneet@33",
+        "role": "Staff"
+    },
+    {
+        "id": "90aed15",
+        "name": "Karan",
+        "email": "karan10222@gmail.com",
+        "contact": 4343434345,
+        "experience": 2,
+        "password": "karankartikey@111",
         "role": "Admin"
     },
     {
-        "id": "1f1d7ab",
-        "name": "rahul",
-        "email": "rahul12@gmail.com",
-        "contact": 3254675665,
-        "experience": 4,
-        "password": "rahul#12",
-        "role": "Staff"
-    },
-    {
-        "id": "7f6ce5d",
-        "name": "diya",
-        "email": "diya109@gmail.com",
-        "contact": 9545342343,
-        "experience": 4,
-        "password": "diya@123",
-        "role": "Staff"
-    },
-    {
-        "id": "5c355d0",
-        "name": "manoj",
-        "email": "manoj54@gmail.com",
-        "contact": 5465764565,
+        "id": "0033ebf",
+        "name": "yogesh",
+        "email": "yogesh43@gmail.com",
+        "contact": 3445768899,
         "experience": 3,
-        "password": "manoj@1221",
+        "password": "yogesh@122",
         "role": "Staff"
     },
     {
-        "id": "c6b46e7",
-        "name": "pawan",
-        "email": "pawan544@gmail.com",
-        "contact": 4345345465,
+        "id": "9a36361",
+        "name": "vivek",
+        "email": "vivek32@gmail.com",
+        "contact": 5643342232,
         "experience": 2,
-        "password": "pawan@343",
+        "password": "vivek@4454",
         "role": "Staff"
     },
     {
-        "id": "0d862c3",
-        "name": "neeraj",
-        "email": "neeraj34@gmail.com",
-        "contact": 5476873423,
+        "id": "8b99ddb",
+        "name": "aman",
+        "email": "aman877@gmail.com",
+        "contact": 5564993433,
+        "experience": 2,
+        "password": "aman%121212",
+        "role": "Staff"
+    },
+    {
+        "id": "1c54a6d",
+        "name": "ajay",
+        "email": "ajay343@gmail.com",
+        "contact": 7676767676,
+        "experience": 2,
+        "password": "ajay@1122",
+        "role": "Staff"
+    },
+    {
+        "id": "8b916ab",
+        "name": "kamal",
+        "email": "kamal32@gmail.com",
+        "contact": 4545454545,
         "experience": 3,
-        "password": "neeraj%23",
-        "role": "Staff"
-    },
-    {
-        "id": "b840449",
-        "name": "riya",
-        "email": "riya43@gmail.com",
-        "contact": 4534236543,
-        "experience": 4,
-        "password": "riya09@",
+        "password": "kamal#222",
         "role": "Staff"
     }
 ]

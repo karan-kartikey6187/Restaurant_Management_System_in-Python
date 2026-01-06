@@ -1,24 +1,29 @@
 import uuid
 from app.validation.all_validation import Validation
+from app.model.error_module import Module
+from colorama import Fore , init
+init(autoreset=True)
 class Staff:
-    def __init__(self):
-        print(">>>>>>>>>Registation Menu<<<<<<<<<<")
-        self.id = uuid.uuid4().hex[:7]
-        self.name = Validation.name(self)
-        self.email = Validation.email(self)
-        self.contact = Validation.contact(self)
-        self.experience = Validation.experience(self)
-        self.password = Validation.password(self)
-        self.role = "Staff"
-        print("Registation Successfull.")
-
-    def to_dict(self):
+    @staticmethod
+    def register():
+        module=Module.register
+        print(Fore.BLUE+"<>"*15)
+        print(Fore.LIGHTYELLOW_EX+">>>>>>>Registration Menu<<<<<<")
+        print(Fore.BLUE+"<>"*15)
+        id = uuid.uuid4().hex[:7]
+        name = Validation.name()
+        email = Validation.email(module)
+        contact = Validation.contact(email,module)
+        experience = Validation.experience(email,module)
+        password = Validation.password(email,module)
+        role = "Staff"
+        print(Fore.GREEN+"Registation Successfull.")
         return {
-            "id": self.id,
-            "name": self.name,
-            "email": self.email,
-            "contact": self.contact,
-            "experience": self.experience,
-            "password":self.password,
-            "role": self.role
+            "id": id,
+            "name": name,
+            "email": email,
+            "contact": contact,
+            "experience": experience,
+            "password": password,
+            "role": role
         }

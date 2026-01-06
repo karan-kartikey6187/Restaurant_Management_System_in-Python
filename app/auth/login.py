@@ -1,20 +1,35 @@
 from app.validation.all_validation import Validation
+from app.domain.read_write import ReadWrite
 from app.menu.all_menu import Menu
+from app.model.error_module import Module
+from colorama import Fore , init
+init(autoreset=True)
 import getpass
 
 class Login:
-    def login_user(self, all_data):
-        print(">>>>>Login-Menu<<<<<<")
-        email = Validation.email(self)
+    @staticmethod
+    def login_user():
+        module=Module.login
+        all_data = ReadWrite.read()
+        print(Fore.BLUE+"="*22)
+        print(Fore.YELLOW+">>>>>Login-Menu<<<<<<")
+        print(Fore.BLUE+"="*22)
+        email=Validation.email(module)
+        found = False 
         for item in all_data:
             if item["email"] == email:
-                password = getpass.getpass("Enter Your Password: ")
+                found = True
+                password = getpass.getpass(Fore.WHITE+"Enter Your Password: ")
+
                 if item["password"] == password:
-                    print("Login Successfull.")
+                    print(Fore.GREEN+"Login Successful.")
+
                     if item["role"] == "Staff":
-                        choice=Menu.staff_menu(self)
+                        Menu.staff_menu()
                     elif item["role"] == "Admin":
-                        choice=Menu.admin_menu(self)
+                        Menu.admin_menu()
                 else:
-                    print("Incorrect password!")
-                    break
+                    print(Fore.RED+"Incorrect password!")
+                break 
+        if not found:
+             print(Fore.RED+"Email not found")
