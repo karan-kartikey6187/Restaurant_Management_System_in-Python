@@ -7,6 +7,10 @@ from app.validation.all_validation import Validation
 json_file=Path.staff_data_path
 
 class Main():
+    """
+    Displays the main menu options to the user and
+    handles user selection for navigation.
+    """
     @staticmethod
     def dashboard_menu():
         all_data=[]

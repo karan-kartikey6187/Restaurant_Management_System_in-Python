@@ -6,6 +6,7 @@ init(autoreset=True)
 class Staff:
     @staticmethod
     def register():
+        """Registers a new staff or admin user.""" 
         module=Module.register
         print(Fore.BLUE+"<>"*15)
         print(Fore.LIGHTYELLOW_EX+">>>>>>>Registration Menu<<<<<<")
