@@ -4,3 +4,4 @@ class Logs:
     password=r"app\logs\password.txt"
     email=r"app/logs/email.txt"
     contact=r"app\logs\contact.txt"
+    update_item=r"app\logs\updae_item.txt"

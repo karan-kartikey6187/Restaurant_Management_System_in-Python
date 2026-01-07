@@ -2,6 +2,7 @@ from app.domain.read_write import ReadWrite
 from app.model.logs_path import Logs
 from app.model.pattern import Pattern
 from colorama import Fore , init
+import getpass
 import re
 init(autoreset=True)
 
@@ -44,7 +45,7 @@ class Validation:
         while True: 
             try:
                 EMAIL_PATTERN=Pattern.email_pattern
-                email = input(Fore.WHITE + "Please Enter your email: ").strip().lower()
+                email = input(Fore.WHITE + "Please Enter Your Email: ").strip().lower()
                 if re.fullmatch(EMAIL_PATTERN, email):
                     return email
                 else:
@@ -74,8 +75,8 @@ class Validation:
     def password(email,module):
         while True:
             try:
-                password = input(Fore.WHITE+"Enter password: ")
-                confirm_password = input(Fore.WHITE+"Confirm password: ")
+                password = getpass.getpass(Fore.WHITE+"Enter password: ")
+                confirm_password = getpass.getpass(Fore.WHITE+"Confirm password: ")
 
                 if len(password) < 8:
                     print(Fore.RED+"Minimum 8 characters required.")

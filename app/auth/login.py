@@ -28,12 +28,14 @@ class Login:
                     if item["role"] == "Staff":
                         while True:
                             choice=Menu.staff_menu()
-                            Admin_handle.menu_show(choice)
+                            Admin_handle.menu_show(choice,email)
 
                     elif item["role"] == "Admin":
                         while True:
                             choice=Menu.admin_menu()
-                            Admin_handle.menu_show(choice)
+                            if choice==7:
+                                break
+                            Admin_handle.menu_show(choice,email)
                 else:
                     print(Fore.RED+"Incorrect password!")
                 break 
