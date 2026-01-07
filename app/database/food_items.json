@@ -4,7 +4,6 @@
     "menu": {
         "starters": [
             {
-                "id": 1,
                 "name": "Paneer Tikka",
                 "type": "veg",
                 "price": {
@@ -13,7 +12,6 @@
                 }
             },
             {
-                "id": 2,
                 "name": "Chicken Tikka",
                 "type": "non-veg",
                 "price": {
@@ -22,7 +20,6 @@
                 }
             },
             {
-                "id": 3,
                 "name": "Hara Bhara Kabab",
                 "type": "veg",
                 "price": {
@@ -31,7 +28,6 @@
                 }
             },
             {
-                "id": 4,
                 "name": "Mutton Seekh Kabab",
                 "type": "non-veg",
                 "price": {
@@ -40,7 +36,6 @@
                 }
             },
             {
-                "id": 5,
                 "name": "Veg Spring Roll",
                 "type": "veg",
                 "price": {
@@ -49,7 +44,6 @@
                 }
             },
             {
-                "id": 6,
                 "name": "Chicken Wings",
                 "type": "non-veg",
                 "price": {
@@ -58,7 +52,6 @@
                 }
             },
             {
-                "id": 7,
                 "name": "Corn & Cheese Balls",
                 "type": "veg",
                 "price": {
@@ -67,7 +60,6 @@
                 }
             },
             {
-                "id": 8,
                 "name": "Fish Finger",
                 "type": "non-veg",
                 "price": {
@@ -76,7 +68,6 @@
                 }
             },
             {
-                "id": 9,
                 "name": "Paneer Pakora",
                 "type": "veg",
                 "price": {
@@ -85,7 +76,6 @@
                 }
             },
             {
-                "id": 10,
                 "name": "Chilli Chicken",
                 "type": "non-veg",
                 "price": {
@@ -96,7 +86,6 @@
         ],
         "main_course": [
             {
-                "id": 11,
                 "name": "Butter Paneer Masala",
                 "type": "veg",
                 "price": {
@@ -105,7 +94,6 @@
                 }
             },
             {
-                "id": 12,
                 "name": "Butter Chicken",
                 "type": "non-veg",
                 "price": {
@@ -114,7 +102,6 @@
                 }
             },
             {
-                "id": 13,
                 "name": "Palak Paneer",
                 "type": "veg",
                 "price": {
@@ -123,7 +110,6 @@
                 }
             },
             {
-                "id": 14,
                 "name": "Chicken Korma",
                 "type": "non-veg",
                 "price": {
@@ -132,7 +118,6 @@
                 }
             },
             {
-                "id": 15,
                 "name": "Veg Kolhapuri",
                 "type": "veg",
                 "price": {
@@ -141,7 +126,6 @@
                 }
             },
             {
-                "id": 16,
                 "name": "Mutton Rogan Josh",
                 "type": "non-veg",
                 "price": {
@@ -150,7 +134,6 @@
                 }
             },
             {
-                "id": 17,
                 "name": "Paneer Lababdar",
                 "type": "veg",
                 "price": {
@@ -159,7 +142,6 @@
                 }
             },
             {
-                "id": 18,
                 "name": "Chicken Chettinad",
                 "type": "non-veg",
                 "price": {
@@ -168,7 +150,6 @@
                 }
             },
             {
-                "id": 19,
                 "name": "Dal Makhani",
                 "type": "veg",
                 "price": {
@@ -177,7 +158,6 @@
                 }
             },
             {
-                "id": 20,
                 "name": "Goan Fish Curry",
                 "type": "non-veg",
                 "price": {
@@ -188,59 +168,48 @@
         ],
         "breads": [
             {
-                "id": 21,
                 "name": "Butter Naan",
                 "price": 50
             },
             {
-                "id": 22,
                 "name": "Tandoori Roti",
                 "price": 30
             },
             {
-                "id": 23,
                 "name": "Garlic Naan",
                 "price": 60
             },
             {
-                "id": 24,
                 "name": "Lachha Paratha",
                 "price": 70
             },
             {
-                "id": 25,
                 "name": "Missi Roti",
                 "price": 50
             },
             {
-                "id": 26,
                 "name": "Roomali Roti",
                 "price": 40
             },
             {
-                "id": 27,
                 "name": "Cheese Naan",
                 "price": 80
             },
             {
-                "id": 28,
                 "name": "Kulcha",
                 "price": 60
             },
             {
-                "id": 29,
                 "name": "Paneer Stuffed Naan",
                 "price": 90
             },
             {
-                "id": 30,
                 "name": "Cheese Garlic Naan",
                 "price": 100
             }
         ],
         "drinks": [
             {
-                "id": 31,
                 "name": "Cold Drink",
                 "price": {
                     "half": 25,
@@ -248,7 +217,6 @@
                 }
             },
             {
-                "id": 32,
                 "name": "Masala Chai",
                 "price": {
                     "half": 15,
@@ -256,7 +224,6 @@
                 }
             },
             {
-                "id": 33,
                 "name": "Fresh Lime Soda",
                 "price": {
                     "half": 30,
@@ -264,7 +231,6 @@
                 }
             },
             {
-                "id": 34,
                 "name": "Water",
                 "price": {
                     "half": 20,
@@ -272,7 +238,6 @@
                 }
             },
             {
-                "id": 35,
                 "name": "Buttermilk",
                 "price": {
                     "half": 20,
@@ -280,7 +245,6 @@
                 }
             },
             {
-                "id": 36,
                 "name": "Mango Lassi",
                 "price": {
                     "half": 35,
@@ -288,7 +252,6 @@
                 }
             },
             {
-                "id": 37,
                 "name": "Sweet Lassi",
                 "price": {
                     "half": 30,
@@ -296,7 +259,6 @@
                 }
             },
             {
-                "id": 38,
                 "name": "Salted Lassi",
                 "price": {
                     "half": 30,
@@ -304,7 +266,6 @@
                 }
             },
             {
-                "id": 39,
                 "name": "Coffee",
                 "price": {
                     "half": 25,
@@ -312,17 +273,22 @@
                 }
             },
             {
-                "id": 40,
                 "name": "Green Tea",
                 "price": {
                     "half": 20,
                     "full": 30
                 }
+            },
+            {
+                "name": "Mixed Fruit Juice",
+                "price": {
+                    "half": 50,
+                    "full": 90
+                }
             }
         ],
         "desserts": [
             {
-                "id": 41,
                 "name": "Gulab Jamun",
                 "price": {
                     "half": 55,
@@ -330,7 +296,6 @@
                 }
             },
             {
-                "id": 42,
                 "name": "Ice Cream",
                 "price": {
                     "half": 70,
@@ -338,7 +303,6 @@
                 }
             },
             {
-                "id": 43,
                 "name": "Rasmalai",
                 "price": {
                     "half": 60,
@@ -346,7 +310,6 @@
                 }
             },
             {
-                "id": 44,
                 "name": "Kheer",
                 "price": {
                     "half": 50,
@@ -354,7 +317,6 @@
                 }
             },
             {
-                "id": 45,
                 "name": "Jalebi",
                 "price": {
                     "half": 40,
@@ -362,7 +324,6 @@
                 }
             },
             {
-                "id": 46,
                 "name": "Chocolate Brownie",
                 "price": {
                     "half": 90,
@@ -370,7 +331,6 @@
                 }
             },
             {
-                "id": 47,
                 "name": "Rabri",
                 "price": {
                     "half": 65,
@@ -378,7 +338,6 @@
                 }
             },
             {
-                "id": 48,
                 "name": "Falooda",
                 "price": {
                     "half": 80,
@@ -386,7 +345,6 @@
                 }
             },
             {
-                "id": 49,
                 "name": "Strawberry Sundae",
                 "price": {
                     "half": 85,
@@ -394,7 +352,6 @@
                 }
             },
             {
-                "id": 50,
                 "name": "Mango Pudding",
                 "price": {
                     "half": 70,

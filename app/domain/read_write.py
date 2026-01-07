@@ -17,6 +17,16 @@ class ReadWrite:
         """Writes JSON data to given file path."""
         with open(Path.staff_data_path, "w") as file:
             json.dump(data, file, indent=4)
+    @staticmethod
+    def read_food_data():
+        path=Path.food_item_path
+        with open(path, "r") as f:
+            data = json.loads(f.read())
+            return data  
+    @staticmethod
+    def write_json_food(data):
+        with open(Path.food_item_path, "w") as file:
+            json.dump(data, file, indent=4)          
 
     @staticmethod
     def log_error(path, message, email, module):

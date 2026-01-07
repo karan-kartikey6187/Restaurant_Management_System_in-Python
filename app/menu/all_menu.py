@@ -42,3 +42,15 @@ class Menu:
         print(Fore.GREEN+"7. Back")
         choice=Validation.menu_choice()
         return choice
+    
+    @staticmethod
+    def manage_food_menu ():
+        print(Fore.BLUE+"<>"*14)
+        print(Fore.LIGHTYELLOW_EX+">>>>>>Manage Menu<<<<<<<")
+        print(Fore.BLUE+"<>"*14)
+        print(Fore.GREEN+"1. Add Menu Item")
+        print(Fore.GREEN+"2. Delete Menu Item") 
+        print(Fore.GREEN+"3. Update Menu Item")
+        print(Fore.GREEN+"4. Back")
+        choice=Validation.menu_choice()
+        return choice        
