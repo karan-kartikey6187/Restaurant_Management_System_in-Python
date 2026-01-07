@@ -1,6 +1,8 @@
 from app.domain.read_write import ReadWrite
 from app.model.logs_path import Logs
+from app.model.pattern import Pattern
 from colorama import Fore , init
+import re
 init(autoreset=True)
 
 class Validation:
@@ -11,13 +13,18 @@ class Validation:
             return int(choice)
         else:
             print(Fore.RED+"Please Enter Number Only.")
+
     @staticmethod
     def name():
-        name=input(Fore.WHITE+"Please Enter Your Name: ").strip()
-        if name.isalpha():
-            return name
-        else:
-            print(Fore.RED+"Please Enter Valid Name.")
+          NAME_PATTERN = Pattern.name_pattern
+          while True:
+               name = input(Fore.WHITE+"Please enter your full name: ").strip()
+                
+               if re.fullmatch(NAME_PATTERN, name) and 2 <= len(name) <= 50:
+                     return name
+               else:
+                   print(Fore.RED + "Invalid name. Only letters, spaces, hyphens and apostrophes allowed.")
+
     @staticmethod
     def contact(email,module):
         while True:
@@ -36,13 +43,12 @@ class Validation:
     def email(module):
         while True: 
             try:
-                email = input(Fore.WHITE + "Please Enter your email: ")
-
-                if "@" in email and "." in email:
+                EMAIL_PATTERN=Pattern.email_pattern
+                email = input(Fore.WHITE + "Please Enter your email: ").strip().lower()
+                if re.fullmatch(EMAIL_PATTERN, email):
                     return email
                 else:
                     print(Fore.RED + "Invalid Email. Please try again.")
-
             except Exception as e:
                 print(Fore.RED + "Something went wrong.")
                 path = Logs.email
@@ -63,16 +69,26 @@ class Validation:
                 print(Fore.RED+"Please Enter Numbers Only.")
                 path=Logs.experience 
                 ReadWrite.log_error(path,str(e),email,module)  
+
     @staticmethod
     def password(email,module):
         while True:
             try:
                 password = input(Fore.WHITE+"Enter password: ")
                 confirm_password = input(Fore.WHITE+"Confirm password: ")
+
                 if len(password) < 8:
-                    print(Fore.RED+"Minimum 8 characters required.")    
+                    print(Fore.RED+"Minimum 8 characters required.")
+
+                elif " " in password:
+                    print(Fore.RED+"Do Not Give Space in Passwords.")
+
+                elif len(password) > 20:
+                    print(Fore.RED + "Password should be between 8 and 20 characters.")    
+
                 elif password != confirm_password:
-                    print(Fore.RED+"Passwords do not match.")
+                    print(Fore.RED+"Passwords do not match.") 
+
                 else:
                     return password
             except Exception as e:

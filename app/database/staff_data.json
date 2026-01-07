@@ -61,5 +61,23 @@
         "experience": 3,
         "password": "kamal#222",
         "role": "Staff"
+    },
+    {
+        "id": "6a53ec7",
+        "name": "Ashish",
+        "email": "ashish211@gmail.com",
+        "contact": 3232323232,
+        "experience": 2,
+        "password": "Ashish@111",
+        "role": "Staff"
+    },
+    {
+        "id": "d99bb47",
+        "name": "vinod",
+        "email": "vinod34@gmail.com",
+        "contact": 4345657656,
+        "experience": 2,
+        "password": "vinod@11",
+        "role": "Staff"
     }
 ]
