@@ -1,13 +1,13 @@
 import uuid
 from app.validation.all_validation import Validation
-from app.model.student import Student_model
+from app.model.user import User_model
 from app.model.error_module import Module
 from colorama import Fore , init
 init(autoreset=True)
 class Staff:
     @staticmethod
     def register():
-        stud=Student_model()
+        stud=User_model()
         """Registers a new staff or admin user.""" 
         module=Module.register
         print(Fore.BLUE+"<>"*15)

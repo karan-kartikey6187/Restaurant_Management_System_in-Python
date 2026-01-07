@@ -8,9 +8,9 @@ class Menu:
         print(Fore.BLUE+"<>"*13)
         print(Fore.LIGHTYELLOW_EX+"======= Main Menu =======")
         print(Fore.BLUE+"<>"*13)
-        print(Fore.GREEN+"1. Login")
-        print(Fore.GREEN+"2. Register")
-        print(Fore.GREEN+"3. Exit")
+        print(Fore.GREEN+"1. Login.")
+        print(Fore.GREEN+"2. Register.")
+        print(Fore.GREEN+"3. Exit.")
 
     @staticmethod
     def admin_menu():
@@ -24,7 +24,7 @@ class Menu:
         print(Fore.GREEN+"4. Manage Staff")
         print(Fore.GREEN+"5. Manage Tables")
         print(Fore.GREEN+"6. View Reports")
-        print(Fore.GREEN+"7. Back")
+        print(Fore.GREEN+"7. Logout.")
         choice=Validation.menu_choice()
         return choice
     @staticmethod
@@ -39,7 +39,7 @@ class Menu:
         print(Fore.GREEN+"4. Update Order Status")
         print(Fore.GREEN+"5. Generate Bill")
         print(Fore.GREEN+"6. Table Booking")
-        print(Fore.GREEN+"7. Back")
+        print(Fore.GREEN+"7. Logout.")
         choice=Validation.menu_choice()
         return choice
     

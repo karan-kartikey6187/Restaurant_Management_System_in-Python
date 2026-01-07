@@ -89,13 +89,12 @@ class Manage_item:
                 print(Fore.BLUE+"\n1. Update Name")
                 print(Fore.BLUE+"2. Update Price")
                 print(Fore.BLUE+"3. Update Type (veg / non-veg)")
-                choice = input(Fore.RED+"Choose option: ")
+                choice = input(Fore.WHITE+"Choose option: ")
 
                 if choice == "1":
                     item["name"] = input(Fore.BLUE+"New name: ").strip()
 
                 elif choice == "2":
-                    while True:
                         try:
                             if isinstance(item["price"], dict):
                                 item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX+"New half price: "))
@@ -103,7 +102,7 @@ class Manage_item:
                             else:
                                 item["price"] = int(input("New price: "))
                         except Exception as e:
-                                print(Fore.RED+"Please Enter Numbers Only.")
+                                print(Fore.RED+"Invalid Price.")
                                 module=Module.update
                                 path=Logs.update_item
                                 ReadWrite.log_error(path,str(e),email,module)

@@ -79,5 +79,14 @@
         "experience": 2,
         "password": "vinod@11",
         "role": "Staff"
+    },
+    {
+        "id": "2268b19",
+        "name": "Yogesh Kumar",
+        "email": "yogesh33@gmail.com",
+        "contact": 5645343454,
+        "experience": 2,
+        "password": "yogesh@12",
+        "role": "Staff"
     }
 ]
