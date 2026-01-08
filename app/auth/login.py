@@ -1,8 +1,8 @@
 from app.validation.all_validation import Validation
 from app.domain.read_write import ReadWrite
-from app.menu.all_menu import Menu
 from app.model.error_module import Module
 from app.domain.admin_function import Admin_handle
+from app.domain.staff_access import Staff_handle
 from colorama import Fore , init
 init(autoreset=True)
 import getpass
@@ -26,16 +26,11 @@ class Login:
                     print(Fore.GREEN+"Login Successful.")
 
                     if item["role"] == "Staff":
-                        while True:
-                            choice=Menu.staff_menu()
-                            Admin_handle.menu_show(choice,email)
+                            Staff_handle.menu_show_staff(email)
 
                     elif item["role"] == "Admin":
-                        while True:
-                            choice=Menu.admin_menu()
-                            if choice==7:
-                                break
-                            Admin_handle.menu_show(choice,email)
+                            Admin_handle.menu_show(email)
+
                 else:
                     print(Fore.RED+"Incorrect password!")
                 break 

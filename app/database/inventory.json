@@ -1,0 +1,220 @@
+{
+    "inventory": [
+        {
+            "name": "Paneer Tikka",
+            "available_half_qty": 120
+        },
+        {
+            "name": "Chicken Tikka",
+            "available_half_qty": 140
+        },
+        {
+            "name": "Hara Bhara Kabab",
+            "available_half_qty": 100
+        },
+        {
+            "name": "Mutton Seekh Kabab",
+            "available_half_qty": 80
+        },
+        {
+            "name": "Veg Spring Roll",
+            "available_half_qty": 150
+        },
+        {
+            "name": "Chicken Wings",
+            "available_half_qty": 130
+        },
+        {
+            "name": "Corn & Cheese Balls",
+            "available_half_qty": 110
+        },
+        {
+            "name": "Fish Finger",
+            "available_half_qty": 90
+        },
+        {
+            "name": "Paneer Pakora",
+            "available_half_qty": 120
+        },
+        {
+            "name": "Chilli Chicken",
+            "available_half_qty": 140
+        },
+        {
+            "name": "Butter Paneer Masala",
+            "available_half_qty": 160
+        },
+        {
+            "name": "Butter Chicken",
+            "available_half_qty": 180
+        },
+        {
+            "name": "Palak Paneer",
+            "available_half_qty": 140
+        },
+        {
+            "name": "Chicken Korma",
+            "available_half_qty": 150
+        },
+        {
+            "name": "Veg Kolhapuri",
+            "available_half_qty": 130
+        },
+        {
+            "name": "Mutton Rogan Josh",
+            "available_half_qty": 90
+        },
+        {
+            "name": "Paneer Lababdar",
+            "available_half_qty": 140
+        },
+        {
+            "name": "Chicken Chettinad",
+            "available_half_qty": 150
+        },
+        {
+            "name": "Dal Makhani",
+            "available_half_qty": 200
+        },
+        {
+            "name": "Goan Fish Curry",
+            "available_half_qty": 100
+        },
+        {
+            "name": "Mix Veg",
+            "available_half_qty": 180
+        },
+        {
+            "name": "Butter Naan",
+            "available_half_qty": 600
+        },
+        {
+            "name": "Tandoori Roti",
+            "available_half_qty": 800
+        },
+        {
+            "name": "Garlic Naan",
+            "available_half_qty": 500
+        },
+        {
+            "name": "Lachha Paratha",
+            "available_half_qty": 450
+        },
+        {
+            "name": "Missi Roti",
+            "available_half_qty": 400
+        },
+        {
+            "name": "Roomali Roti",
+            "available_half_qty": 550
+        },
+        {
+            "name": "Cheese Naan",
+            "available_half_qty": 350
+        },
+        {
+            "name": "Kulcha",
+            "available_half_qty": 300
+        },
+        {
+            "name": "Paneer Stuffed Naan",
+            "available_half_qty": 280
+        },
+        {
+            "name": "Cheese Garlic Naan",
+            "available_half_qty": 260
+        },
+        {
+            "name": "Cold Drink",
+            "available_half_qty": 300
+        },
+        {
+            "name": "Masala Chai",
+            "available_half_qty": 400
+        },
+        {
+            "name": "Fresh Lime Soda",
+            "available_half_qty": 250
+        },
+        {
+            "name": "Water",
+            "available_half_qty": 500
+        },
+        {
+            "name": "Buttermilk",
+            "available_half_qty": 220
+        },
+        {
+            "name": "Mango Lassi",
+            "available_half_qty": 200
+        },
+        {
+            "name": "Sweet Lassi",
+            "available_half_qty": 220
+        },
+        {
+            "name": "Salted Lassi",
+            "available_half_qty": 220
+        },
+        {
+            "name": "Coffee",
+            "available_half_qty": 260
+        },
+        {
+            "name": "Green Tea",
+            "available_half_qty": 180
+        },
+        {
+            "name": "Mixed Fruit Juice",
+            "available_half_qty": 160
+        },
+        {
+            "name": "Gulab Jamun",
+            "available_half_qty": 180
+        },
+        {
+            "name": "Ice Cream",
+            "available_half_qty": 200
+        },
+        {
+            "name": "Rasmalai",
+            "available_half_qty": 160
+        },
+        {
+            "name": "Kheer",
+            "available_half_qty": 148
+        },
+        {
+            "name": "Jalebi",
+            "available_half_qty": 213
+        },
+        {
+            "name": "Chocolate Brownie",
+            "available_half_qty": 140
+        },
+        {
+            "name": "Rabri",
+            "available_half_qty": 126
+        },
+        {
+            "name": "Falooda",
+            "available_half_qty": 170
+        },
+        {
+            "name": "Strawberry Sundae",
+            "available_half_qty": 150
+        },
+        {
+            "name": "Mango Pudding",
+            "available_half_qty": 160
+        },
+        {
+            "name": "Malai Kofta",
+            "available_half_qty": 118
+        },
+        {
+            "name": "Egg Curry",
+            "available_half_qty": 198
+        }
+    ]
+}

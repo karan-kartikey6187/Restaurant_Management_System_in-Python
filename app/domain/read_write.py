@@ -12,6 +12,19 @@ class ReadWrite:
         with open(path, "r") as f:
             data = json.loads(f.read())
             return data
+    @staticmethod    
+    def read_inventory():
+        inventory_path=Path.inventory_data_path    
+        with open(inventory_path, "r") as f:
+             inventory_data = json.load(f)
+             return inventory_data
+
+    @staticmethod
+    def write_inventory(inventory_data):
+        inventory_path=Path.inventory_data_path    
+        with open(inventory_path, "w") as f:
+            json.dump(inventory_data, f, indent=4)    
+
     @staticmethod
     def write_json(data):
         """Writes JSON data to given file path."""

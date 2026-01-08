@@ -9,11 +9,21 @@ init(autoreset=True)
 class Validation:
     @staticmethod
     def menu_choice():
-        choice=input(Fore.WHITE+"Please Enter Your Choice: ").strip()
-        if choice.isdigit():
-            return int(choice)
-        else:
-            print(Fore.RED+"Please Enter Number Only.")
+        while True:
+            choice=input(Fore.WHITE+"Please Enter Your Choice: ").strip()
+            if choice.isdigit():
+                return int(choice)
+            else:
+                print(Fore.RED+"Please Enter Number Only.")
+
+    @staticmethod
+    def opening_qty():
+        while True:
+            qty=input("Opening stock Quantity(half): ")
+            if qty.isdigit():
+                return int(qty)
+            else:
+                print(Fore.RED+"Please Enter Number Only.")           
 
     @staticmethod
     def name():

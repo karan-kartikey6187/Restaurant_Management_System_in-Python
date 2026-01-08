@@ -164,6 +164,30 @@
                     "half": 230,
                     "full": 380
                 }
+            },
+            {
+                "name": "Mix Veg",
+                "type": "veg",
+                "price": {
+                    "half": 110,
+                    "full": 200
+                }
+            },
+            {
+                "name": "Malai Kofta",
+                "type": "veg",
+                "price": {
+                    "half": 160,
+                    "full": 270
+                }
+            },
+            {
+                "name": "Egg Curry",
+                "type": "non-veg",
+                "price": {
+                    "half": 70,
+                    "full": 120
+                }
             }
         ],
         "breads": [

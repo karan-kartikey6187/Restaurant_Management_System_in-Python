@@ -1,20 +1,17 @@
 from app.menu.food_menu import Food_menu
-from app.domain.manage_menu import Manage_menu
 from app.menu.all_menu import Menu
-class Admin_handle:
+from app.domain.take_order import Order_Take
+class Staff_handle:
     @staticmethod
-    def menu_show(email):
+    def menu_show_staff(email):
         while True:
-            choice=Menu.admin_menu()
+            choice=Menu.staff_menu()
             if choice==1:
                 Food_menu.food_items()
-            
             elif choice ==2:
-                Manage_menu.menu_manage(email)
-
+                Order_Take.take_order()
             elif choice==7:
                 print("Logout Successfull...")
                 break   
             else:
-                print("Invalid Choice.")    
-                    
+                print("Invalid Choice.") 
