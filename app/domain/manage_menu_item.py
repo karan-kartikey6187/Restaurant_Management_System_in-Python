@@ -158,13 +158,13 @@ class Manage_item:
 
                             price_choice = Validation.menu_choice()
 
-                            if price_choice == "1":
+                            if price_choice == 1:
                                 item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
 
-                            elif price_choice == "2":
+                            elif price_choice == 2:
                                 item["price"]["full"] = int( input(Fore.LIGHTYELLOW_EX + "New full price: "))
 
-                            elif price_choice == "3":
+                            elif price_choice == 3:
                                 item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
                                 item["price"]["full"] = int(input(Fore.LIGHTYELLOW_EX + "New full price: "))
                             else:
