@@ -2,6 +2,7 @@ from app.domain.read_write import ReadWrite
 from app.model.error_module import Module
 from app.model.logs_path import Logs
 from app.validation.all_validation import Validation
+from app.model.json_file import Path
 from colorama import Fore , init
 init(autoreset=True)
 
@@ -9,9 +10,9 @@ class Manage_item:
 
     @staticmethod
     def add_item():
-        data = ReadWrite.read_food_data()
-        inventory_data=ReadWrite.read_inventory()
+        data=ReadWrite.read(Path.food_item_path)
 
+        inventory_data=ReadWrite.read(Path.inventory_data_path)
 
         category = input(Fore.GREEN + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
 
@@ -79,14 +80,24 @@ class Manage_item:
 
             quantity = Validation.opening_qty()
 
-            inventory_data["inventory"].append({
-            "name": name,
-            "available_half_qty": quantity})  
+
+            if category == "breads":
+                inventory_data["inventory"].append({
+                    "name": name,
+                    "category": category,
+                    "available_qty": quantity
+                })
+            else:
+                inventory_data["inventory"].append({
+                    "name": name,
+                    "category": category,
+                    "available_half_qty": quantity
+                })
 
             data["menu"][category].append(item)
-            ReadWrite.write_json_food(data)
-
-            ReadWrite.write_inventory(inventory_data)
+            ReadWrite.write_json(data,Path.food_item_path)
+            
+            ReadWrite.write_json(inventory_data,Path.inventory_data_path)
 
             print(Fore.GREEN + "Item added successfully")
 
@@ -96,62 +107,92 @@ class Manage_item:
 
     @staticmethod
     def delete_item():
-        data = ReadWrite.read_food_data()
-        category = input(Fore.BLUE+"Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
+        
+        data = ReadWrite.read(Path.food_item_path)
+        inventory_data = ReadWrite.read(Path.inventory_data_path)
+
+        category = input(Fore.BLUE + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
 
         if category not in data["menu"]:
-            print(Fore.RED+"Invalid category")
-            return
-
-        name = input(Fore.BLUE+"Item name to delete: ").strip().lower()
-
-        items = data["menu"][category]
-
-        for item in items:
-            item_name = item["name"].strip().lower()
-
-            if item_name == name:
-                items.remove(item)
-                ReadWrite.write_json_food(data)
-                print(Fore.GREEN+"Item deleted successfully")
-                return
-
-        print(Fore.RED+"Item not found")
-
-    @staticmethod
-    def update_item(email):
-        data = ReadWrite.read_food_data()
-        category = input(Fore.BLUE+"Category (starters/main_course/breads/drinks/desserts): ").strip()
-
-        if category not in data["menu"]:
-            print(Fore.RED+"Invalid category")
+            print(Fore.RED + "Invalid category")
             return
 
         items = data["menu"][category]
 
-        print(Fore.LIGHTYELLOW_EX+"\nAvailable items:")
+        print(Fore.LIGHTYELLOW_EX + "\nAvailable items:")
         for item in items:
             print("-", item["name"])
 
-        name = input(Fore.BLUE+"\nItem name to update: ").strip().lower()
+        name_to_delete = input(Fore.BLUE + "Item name to delete: ").strip().lower()
 
         for item in items:
-            if item["name"].strip().lower() == name:
+            if item["name"].strip().lower() == name_to_delete:
+                items.remove(item) 
 
-                print(Fore.BLUE+"\n1. Update Name")
-                print(Fore.BLUE+"2. Update Price")
+                inventory_items = inventory_data["inventory"]
+                for inventory in inventory_items[:]: 
+                    if (inventory["name"].strip().lower() == name_to_delete and inventory["category"] == category):
+                        inventory_items.remove(inventory)
+
+                ReadWrite.write_json(data, Path.food_item_path)
+                ReadWrite.write_json(inventory_data, Path.inventory_data_path)
+
+                print(Fore.GREEN + "Item deleted from menu and inventory successfully")
+                return
+
+        print(Fore.RED + "Item not found")
+
+
+    @staticmethod
+    def update_item(email):
+        data = ReadWrite.read(Path.food_item_path)
+        inventory_data = ReadWrite.read(Path.inventory_data_path)
+
+        category = input(Fore.BLUE + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
+
+        if category not in data["menu"]:
+            print(Fore.RED + "Invalid category")
+            return
+
+        items = data["menu"][category]
+        inventory_items = inventory_data["inventory"]
+
+        print(Fore.LIGHTYELLOW_EX + "\nAvailable items:")
+        for item in items:
+            print("-", item["name"])
+
+        search_name = input(Fore.BLUE + "\nItem name to update: ").strip().lower()
+
+        for item in items:
+            if item["name"].strip().lower() == search_name:
+
+                old_name = item["name"] 
+
+                print(Fore.BLUE + "\n1. Update Name")
+                print(Fore.BLUE + "2. Update Price")
+
                 if category in ["starters", "main_course"]:
-                    print(Fore.BLUE+"3. Update Type (veg / non-veg)")
+                    print(Fore.BLUE + "3. Update Type (veg / non-veg)")
 
                 choice = Validation.menu_choice()
 
                 if choice == 1:
-                    item["name"] = input(Fore.BLUE+"New name: ").strip()
+                    new_name = input(Fore.BLUE + "New name: ").strip().title()
+
+                    if not new_name:
+                        print(Fore.RED + "Name cannot be empty")
+                        return
+
+                    item["name"] = new_name
+
+                    for inv in inventory_items:
+                        if (inv["name"].strip().lower() == old_name.strip().lower()and inv["category"] == category):
+                            inv["name"] = new_name
+                            break
 
                 elif choice == 2:
                     try:
                         if isinstance(item["price"], dict):
-
                             print(Fore.CYAN + "1. Update Half Price")
                             print(Fore.CYAN + "2. Update Full Price")
                             print(Fore.CYAN + "3. Update Both")
@@ -162,7 +203,7 @@ class Manage_item:
                                 item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
 
                             elif price_choice == 2:
-                                item["price"]["full"] = int( input(Fore.LIGHTYELLOW_EX + "New full price: "))
+                                item["price"]["full"] = int(input(Fore.LIGHTYELLOW_EX + "New full price: "))
 
                             elif price_choice == 3:
                                 item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
@@ -174,10 +215,9 @@ class Manage_item:
                             item["price"] = int(input(Fore.LIGHTYELLOW_EX + "New price: "))
 
                     except ValueError as e:
-                        print(Fore.RED + "Invalid Price.")
-                        module = Module.update
-                        path = Logs.update_item
-                        ReadWrite.log_error(path, str(e), email, module)
+                        print(Fore.RED + "Invalid price")
+                        ReadWrite.log_error(Logs.update_item, str(e), email, Module.update)
+                        return
 
                 elif choice == 3 and category in ["starters", "main_course"]:
                     while True:
@@ -186,22 +226,21 @@ class Manage_item:
                         if new_type in ["veg", "v"]:
                             item["type"] = "veg"
                             break
-
                         elif new_type in ["non-veg", "nonveg", "n"]:
                             item["type"] = "non-veg"
                             break
-
                         else:
-                            print(Fore.RED + "Invalid Type. Enter veg or non-veg.")
-
+                            print(Fore.RED + "Invalid type. Enter veg or non-veg.")
                 else:
-                    print(Fore.RED+"Invalid option")
+                    print(Fore.RED + "Invalid option")
                     return
+                
+                ReadWrite.write_json(data, Path.food_item_path)
+                ReadWrite.write_json(inventory_data, Path.inventory_data_path)
 
-                ReadWrite.write_json_food(data)    
-
-                print(Fore.GREEN+"Menu item updated successfully")
+                print(Fore.GREEN+"Menu item & inventory updated successfully")
                 return
 
-        print(Fore.RED+"Item not found")
+        print(Fore.RED + "Item not found")
+
     

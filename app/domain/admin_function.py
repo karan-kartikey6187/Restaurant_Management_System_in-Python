@@ -1,6 +1,9 @@
 from app.menu.food_menu import Food_menu
 from app.domain.manage_menu import Manage_menu
 from app.menu.all_menu import Menu
+from colorama import Fore , init
+init(autoreset=True)
+
 class Admin_handle:
     @staticmethod
     def menu_show(email):
@@ -13,8 +16,8 @@ class Admin_handle:
                 Manage_menu.menu_manage(email)
 
             elif choice==7:
-                print("Logout Successfull...")
+                print(Fore.GREEN+"Logout Successfull...")
                 break   
             else:
-                print("Invalid Choice.")    
+                print(Fore.RED+"Invalid Choice.")    
                     

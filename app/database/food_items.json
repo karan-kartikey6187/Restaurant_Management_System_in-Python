@@ -82,6 +82,22 @@
                     "half": 175,
                     "full": 290
                 }
+            },
+            {
+                "name": "Aloo Tikki",
+                "type": "veg",
+                "price": {
+                    "half": 90,
+                    "full": 160
+                }
+            },
+            {
+                "name": "Crispy Corn",
+                "type": "veg",
+                "price": {
+                    "half": 120,
+                    "full": 200
+                }
             }
         ],
         "main_course": [
@@ -188,6 +204,22 @@
                     "half": 70,
                     "full": 120
                 }
+            },
+            {
+                "name": "Chicken Biryani",
+                "type": "non-veg",
+                "price": {
+                    "half": 180,
+                    "full": 300
+                }
+            },
+            {
+                "name": "Aloo Jeera",
+                "type": "veg",
+                "price": {
+                    "half": 110,
+                    "full": 180
+                }
             }
         ],
         "breads": [
@@ -241,7 +273,7 @@
                 }
             },
             {
-                "name": "Masala Chai",
+                "name": "Masala chai",
                 "price": {
                     "half": 15,
                     "full": 25
@@ -308,6 +340,13 @@
                 "price": {
                     "half": 50,
                     "full": 90
+                }
+            },
+            {
+                "name": "Chai",
+                "price": {
+                    "half": 30,
+                    "full": 50
                 }
             }
         ],

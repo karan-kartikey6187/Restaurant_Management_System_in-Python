@@ -1,18 +1,13 @@
 from app.model.json_file import Path
-import json
+from app.domain.read_write import ReadWrite
 from colorama import Fore, Style, init
-
 init(autoreset=True)
-
-food_json_path = Path.food_item_path
-
 
 class Food_menu:
 
     @staticmethod
     def food_items():
-        with open(food_json_path, "r", encoding="utf-8") as file:
-            data = json.load(file)
+        data=ReadWrite.read(Path.food_item_path) 
 
         print(Fore.CYAN + "=" * 70)
         print(Fore.YELLOW + Style.BRIGHT + f"{data['restaurant_name']:^70}")

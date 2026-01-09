@@ -27,11 +27,10 @@ class Validation:
 
     @staticmethod
     def name():
-          NAME_PATTERN = Pattern.name_pattern
           while True:
                name = input(Fore.WHITE+"Please enter your full name: ").strip()
                 
-               if re.fullmatch(NAME_PATTERN, name) and 2 <= len(name) <= 50:
+               if re.fullmatch(Pattern.name_pattern, name) and 2 <= len(name) <= 50:
                      return name
                else:
                    print(Fore.RED + "Invalid name. Only letters, spaces, hyphens and apostrophes allowed.")
@@ -54,16 +53,15 @@ class Validation:
     def email(module):
         while True: 
             try:
-                EMAIL_PATTERN=Pattern.email_pattern
                 email = input(Fore.WHITE + "Please Enter Your Email: ").strip().lower()
-                if re.fullmatch(EMAIL_PATTERN, email):
+                if re.fullmatch(Pattern.email_pattern, email):
                     return email
                 else:
                     print(Fore.RED + "Invalid Email. Please try again.")
             except Exception as e:
                 print(Fore.RED + "Something went wrong.")
-                path = Logs.email
-                ReadWrite.log_error(path, str(e), email, module)
+            
+                ReadWrite.log_error(Logs.email, str(e), email, module)
 
     @staticmethod
     def experience(email,module):
@@ -78,8 +76,8 @@ class Validation:
                     return years
             except ValueError as e:
                 print(Fore.RED+"Please Enter Numbers Only.")
-                path=Logs.experience 
-                ReadWrite.log_error(path,str(e),email,module)  
+
+                ReadWrite.log_error(Logs.experience,str(e),email,module)  
 
     @staticmethod
     def password(email,module):
@@ -104,8 +102,7 @@ class Validation:
                     return password
             except Exception as e:
                 print(Fore.RED+"Something went wrong.")
-                path=Logs.password
-                ReadWrite.log_error(path,str(e),email,module)     
+                ReadWrite.log_error(Logs.password,str(e),email,module)     
                    
                         
 

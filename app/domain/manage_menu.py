@@ -1,5 +1,7 @@
 from app.domain.manage_menu_item import Manage_item
 from app.menu.all_menu import Menu
+from colorama import Fore , init
+init(autoreset=True)
 class Manage_menu:
     def menu_manage(email):
         while True:
@@ -13,5 +15,5 @@ class Manage_menu:
             elif choice==4:
                 break              
             else: 
-                print("Invalid Choice Enter Choice(1-4)")   
+                print(Fore.RED+"Invalid Choice Enter Choice(1-4)")   
 

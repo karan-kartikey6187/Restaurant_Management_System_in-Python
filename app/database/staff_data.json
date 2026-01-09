@@ -88,5 +88,14 @@
         "experience": 2,
         "password": "yogesh@12",
         "role": "Staff"
+    },
+    {
+        "id": "ef47baa",
+        "name": "Rohan",
+        "email": "rohan33@gmail.com",
+        "contact": 4500940343,
+        "experience": 3,
+        "password": "Rohan@100",
+        "role": "Staff"
     }
 ]

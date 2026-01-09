@@ -4,7 +4,8 @@ from app.domain.read_write import ReadWrite
 from app.model.json_file import Path
 from app.auth.login import Login
 from app.validation.all_validation import Validation
-json_file=Path.staff_data_path
+from colorama import Fore , init
+init(autoreset=True)
 
 class Main():
     """
@@ -21,12 +22,14 @@ class Main():
                 Login.login_user() 
             elif choice==2:
                 data=Staff.register()
-                all_data=ReadWrite.read()
+                all_data=ReadWrite.read(Path.staff_data_path)
                 all_data.append(data)
-                ReadWrite.write_json(all_data)
+                ReadWrite.write_json(all_data,Path.staff_data_path)
             elif choice==3:
+                print(Fore.GREEN+"Exit Successfull....")
                 break   
-
+            else:
+                print(Fore.RED+"Please Enter The Number Between(1-3)")
 
 
 
