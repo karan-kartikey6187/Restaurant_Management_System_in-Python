@@ -1,18 +1,18 @@
 from app.model.json_file import Path
 from app.domain.read_write import ReadWrite
-from colorama import Fore, Style, init
-init(autoreset=True)
+from app.model.colors import Color
+
 
 class Food_menu:
 
     @staticmethod
     def food_items():
-        data=ReadWrite.read(Path.food_item_path) 
+        data = ReadWrite.read(Path.food_item_path)
 
-        print(Fore.CYAN + "=" * 70)
-        print(Fore.YELLOW + Style.BRIGHT + f"{data['restaurant_name']:^70}")
-        print(Fore.LIGHTWHITE_EX + f"{data['location']:^70}")
-        print(Fore.CYAN + "=" * 70)
+        print(Color.YELLOW + "=" * 70 + Color.RESET)
+        print(Color.BOLD + Color.BRIGHT_YELLOW + f"{data['restaurant_name']:^70}" + Color.RESET)
+        print(Color.CYAN + f"{data['location']:^70}" + Color.RESET)
+        print(Color.YELLOW + "=" * 70 + Color.RESET)
 
         menu = data["menu"]
 
@@ -21,60 +21,70 @@ class Food_menu:
 
             for food_type in ["veg", "non-veg"]:
                 title = f"{category.replace('_', ' ').upper()} - {food_type.upper()}"
-                color = Fore.GREEN if food_type == "veg" else Fore.LIGHTRED_EX
 
-                print("\n" + color + Style.BRIGHT + title.center(70))
-                print(Fore.WHITE + "-" * 70)
-                print(Fore.YELLOW + f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}")
-                print(Fore.WHITE + "-" * 70)
+                section_color = Color.GREEN if food_type == "veg" else Color.RED
+
+                print("\n" + Color.BOLD + section_color + title.center(70) + Color.RESET)
+                print(Color.YELLOW + "-" * 70 + Color.RESET)
+                print(
+                    Color.CYAN +
+                    f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}" +
+                    Color.RESET
+                )
+                print(Color.YELLOW + "-" * 70 + Color.RESET)
 
                 for item in items:
                     if item["type"] == food_type:
                         print(
-                            Fore.LIGHTCYAN_EX +
-                            f"{item['name']:<35}"
-                            f"₹{item['price']['half']:<14}"
-                            f"₹{item['price']['full']}"
+                            section_color +
+                            f"{item['name']:<35}" +
+                            Color.BRIGHT_GREEN +
+                            f"₹{item['price']['half']:<14}₹{item['price']['full']}" +
+                            Color.RESET
                         )
 
-        print("\n" + Fore.MAGENTA + Style.BRIGHT + "BREADS".center(70))
-        print(Fore.WHITE + "-" * 70)
-        print(Fore.YELLOW + f"{'ITEM NAME':<45}{'PRICE'}")
-        print(Fore.WHITE + "-" * 70)
+        print("\n" + Color.BOLD + Color.BRIGHT_BLUE + "BREADS".center(70) + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
+        print(Color.CYAN + f"{'ITEM NAME':<45}{'PRICE'}" + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
 
         for item in menu["breads"]:
             print(
-                Fore.LIGHTCYAN_EX +
-                f"{item['name']:<45}"
-                f"₹{item['price']}"
+                Color.WHITE +
+                f"{item['name']:<45}" +
+                Color.BRIGHT_GREEN +
+                f"₹{item['price']}" +
+                Color.RESET
             )
 
-        print("\n" + Fore.BLUE + Style.BRIGHT + "DRINKS".center(70))
-        print(Fore.WHITE + "-" * 70)
-        print(Fore.YELLOW + f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}")
-        print(Fore.WHITE + "-" * 70)
+        print("\n" + Color.BOLD + Color.BRIGHT_CYAN + "DRINKS".center(70) + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
+        print(Color.CYAN + f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}" + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
 
         for item in menu["drinks"]:
             print(
-                Fore.LIGHTCYAN_EX +
-                f"{item['name']:<35}"
-                f"₹{item['price']['half']:<14}"
-                f"₹{item['price']['full']}"
+                Color.WHITE +
+                f"{item['name']:<35}" +
+                Color.BRIGHT_GREEN +
+                f"₹{item['price']['half']:<14}₹{item['price']['full']}" +
+                Color.RESET
             )
 
-        print("\n" + Fore.LIGHTMAGENTA_EX + Style.BRIGHT + "DESSERTS".center(70))
-        print(Fore.WHITE + "-" * 70)
-        print(Fore.YELLOW + f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}")
-        print(Fore.WHITE + "-" * 70)
+        print("\n" + Color.BOLD + Color.BRIGHT_MAGENTA + "DESSERTS".center(70) + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
+        print(Color.CYAN + f"{'ITEM NAME':<35}{'HALF':<15}{'FULL'}" + Color.RESET)
+        print(Color.YELLOW + "-" * 70 + Color.RESET)
 
         for item in menu["desserts"]:
             print(
-                Fore.LIGHTCYAN_EX +
-                f"{item['name']:<35}"
-                f"₹{item['price']['half']:<14}"
-                f"₹{item['price']['full']}"
+                Color.WHITE +
+                f"{item['name']:<35}" +
+                Color.BRIGHT_GREEN +
+                f"₹{item['price']['half']:<14}₹{item['price']['full']}" +
+                Color.RESET
             )
 
-        print(Fore.CYAN + "=" * 70)
-        print(Fore.LIGHTGREEN_EX + Style.BRIGHT + "[ THANK YOU FOR VISITING ]".center(70))
-        print(Fore.CYAN + "=" * 70)
+        print(Color.YELLOW + "=" * 70 + Color.RESET)
+        print(Color.BOLD + Color.BRIGHT_MAGENTA + "[ THANK YOU FOR VISITING ]".center(70) + Color.RESET)
+        print(Color.YELLOW + "=" * 70 + Color.RESET)

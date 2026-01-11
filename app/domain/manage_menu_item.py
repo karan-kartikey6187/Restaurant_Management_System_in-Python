@@ -3,8 +3,7 @@ from app.model.error_module import Module
 from app.model.logs_path import Logs
 from app.validation.all_validation import Validation
 from app.model.json_file import Path
-from colorama import Fore , init
-init(autoreset=True)
+from app.model.colors import Color
 
 class Manage_item:
 
@@ -14,40 +13,40 @@ class Manage_item:
 
         inventory_data=ReadWrite.read(Path.inventory_data_path)
 
-        category = input(Fore.GREEN + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
+        category = input(Color.BRIGHT_BLUE+"Category (starters/main_course/breads/drinks/desserts): "+Color.YELLOW).strip().lower()
 
         if category not in data["menu"]:
-            print(Fore.RED + "Invalid category")
+            print(Color.RED+"Invalid category")
             return
 
-        name = input("Item name: ").strip().title()
+        name = input(Color.BRIGHT_BLUE+"Item name: "+Color.YELLOW).strip().title()
 
         if not name.replace(" ", "").isalpha():
-            print(Fore.RED + "Invalid Name. Use letters only.")
+            print(Color.RED+"Invalid Name. Use letters only.")
             return
 
         if not name:
-            print(Fore.RED + "Item name cannot be empty")
+            print(Color.RED+"Item name cannot be empty")
             return
 
         for item in data["menu"][category]:
             if item["name"] == name:
-                print(Fore.RED + "Item already exists")
+                print(Color.YELLOW+"Item already exists")
                 return
 
         try:
             if category in ["starters", "main_course"]:
-                food_type = input("Type (veg/non-veg): ").lower()
+                food_type = input(Color.BRIGHT_BLUE+"Type (veg/non-veg): "+Color.YELLOW).lower()
 
                 if food_type not in ["veg", "non-veg"]:
-                    print(Fore.RED + "Invalid food type")
+                    print(Color.RED+"Invalid food type")
                     return
 
-                half = int(input("Half price: "))
-                full = int(input("Full price: "))
+                half = int(input(Color.BRIGHT_BLUE+"Half price: "+Color.YELLOW))
+                full = int(input(Color.BRIGHT_BLUE+"Full price: "+Color.YELLOW))
 
                 if half <= 0 or full <= 0:
-                    print(Fore.RED + "Price must be greater than 0")
+                    print(Color.RED+"Price must be greater than 0")
                     return
 
                 item = {
@@ -57,20 +56,20 @@ class Manage_item:
                 }
 
             elif category == "breads":
-                price = int(input("Price: "))
+                price = int(input(Color.BRIGHT_BLUE+"Price: "+Color.YELLOW))
 
                 if price <= 0:
-                    print(Fore.RED + "Price must be greater than 0")
+                    print(Color.RED+"Price must be greater than 0")
                     return
 
                 item = {"name": name, "price": price}
 
             else:
-                half = int(input("Half price: "))
-                full = int(input("Full price: "))
+                half = int(input(Color.BRIGHT_BLUE+"Half price: "+Color.YELLOW))
+                full = int(input(Color.BRIGHT_BLUE+"Full price: "+Color.YELLOW))
 
                 if half <= 0 or full <= 0:
-                    print(Fore.RED + "Price must be greater than 0")
+                    print(Color.RED+"Price must be greater than 0")
                     return
 
                 item = {
@@ -79,7 +78,6 @@ class Manage_item:
                 }
 
             quantity = Validation.opening_qty()
-
 
             if category == "breads":
                 inventory_data["inventory"].append({
@@ -99,11 +97,10 @@ class Manage_item:
             
             ReadWrite.write_json(inventory_data,Path.inventory_data_path)
 
-            print(Fore.GREEN + "Item added successfully")
+            print(Color.GREEN+"Item added successfully")
 
         except ValueError:
-            print(Fore.RED + "Price must be a number")
-
+            print(Color.RED+"Price must be a number")
 
     @staticmethod
     def delete_item():
@@ -111,19 +108,19 @@ class Manage_item:
         data = ReadWrite.read(Path.food_item_path)
         inventory_data = ReadWrite.read(Path.inventory_data_path)
 
-        category = input(Fore.BLUE + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
+        category = input(Color.BRIGHT_BLUE+"Category (starters/main_course/breads/drinks/desserts): "+Color.YELLOW).strip().lower()
 
         if category not in data["menu"]:
-            print(Fore.RED + "Invalid category")
+            print(Color.RED+"Invalid category")
             return
 
         items = data["menu"][category]
 
-        print(Fore.LIGHTYELLOW_EX + "\nAvailable items:")
+        print(Color.YELLOW+"\nAvailable items:")
         for item in items:
-            print("-", item["name"])
+            print(Color.CYAN+"-", item["name"])
 
-        name_to_delete = input(Fore.BLUE + "Item name to delete: ").strip().lower()
+        name_to_delete = input(Color.BRIGHT_BLUE+"Item name to delete: "+Color.YELLOW).strip().lower()
 
         for item in items:
             if item["name"].strip().lower() == name_to_delete:
@@ -137,50 +134,49 @@ class Manage_item:
                 ReadWrite.write_json(data, Path.food_item_path)
                 ReadWrite.write_json(inventory_data, Path.inventory_data_path)
 
-                print(Fore.GREEN + "Item deleted from menu and inventory successfully")
+                print(Color.GREEN+"Item deleted from menu and inventory successfully")
                 return
 
-        print(Fore.RED + "Item not found")
-
+        print(Color.RED+"Item not found")
 
     @staticmethod
     def update_item(email):
         data = ReadWrite.read(Path.food_item_path)
         inventory_data = ReadWrite.read(Path.inventory_data_path)
 
-        category = input(Fore.BLUE + "Category (starters/main_course/breads/drinks/desserts): ").strip().lower()
+        category = input(Color.BRIGHT_BLUE+"Category (starters/main_course/breads/drinks/desserts): "+Color.YELLOW).strip().lower()
 
         if category not in data["menu"]:
-            print(Fore.RED + "Invalid category")
+            print(Color.RED+"Invalid category")
             return
 
         items = data["menu"][category]
         inventory_items = inventory_data["inventory"]
 
-        print(Fore.LIGHTYELLOW_EX + "\nAvailable items:")
+        print(Color.YELLOW+"\nAvailable items:")
         for item in items:
-            print("-", item["name"])
+            print(Color.CYAN+"-", item["name"])
 
-        search_name = input(Fore.BLUE + "\nItem name to update: ").strip().lower()
+        search_name = input(Color.BRIGHT_BLUE+"\nItem name to update: "+Color.YELLOW).strip().lower()
 
         for item in items:
             if item["name"].strip().lower() == search_name:
 
                 old_name = item["name"] 
 
-                print(Fore.BLUE + "\n1. Update Name")
-                print(Fore.BLUE + "2. Update Price")
+                print(Color.WHITE+"\n1. Update Name")
+                print(Color.WHITE+"2. Update Price")
 
                 if category in ["starters", "main_course"]:
-                    print(Fore.BLUE + "3. Update Type (veg / non-veg)")
+                    print(Color.WHITE+"3. Update Type (veg / non-veg)")
 
                 choice = Validation.menu_choice()
 
                 if choice == 1:
-                    new_name = input(Fore.BLUE + "New name: ").strip().title()
+                    new_name = input(Color.BRIGHT_BLUE+"New name: "+Color.YELLOW).strip().title()
 
                     if not new_name:
-                        print(Fore.RED + "Name cannot be empty")
+                        print(Color.RED+"Name cannot be empty")
                         return
 
                     item["name"] = new_name
@@ -193,35 +189,35 @@ class Manage_item:
                 elif choice == 2:
                     try:
                         if isinstance(item["price"], dict):
-                            print(Fore.CYAN + "1. Update Half Price")
-                            print(Fore.CYAN + "2. Update Full Price")
-                            print(Fore.CYAN + "3. Update Both")
+                            print(Color.WHITE+"1. Update Half Price")
+                            print(Color.WHITE+"2. Update Full Price")
+                            print(Color.WHITE+"3. Update Both")
 
                             price_choice = Validation.menu_choice()
 
                             if price_choice == 1:
-                                item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
+                                item["price"]["half"] = int(input(Color.BRIGHT_BLUE+"New half price: "+Color.YELLOW))
 
                             elif price_choice == 2:
-                                item["price"]["full"] = int(input(Fore.LIGHTYELLOW_EX + "New full price: "))
+                                item["price"]["full"] = int(input(Color.BRIGHT_BLUE+"New full price: "+Color.YELLOW))
 
                             elif price_choice == 3:
-                                item["price"]["half"] = int(input(Fore.LIGHTYELLOW_EX + "New half price: "))
-                                item["price"]["full"] = int(input(Fore.LIGHTYELLOW_EX + "New full price: "))
+                                item["price"]["half"] = int(input(Color.BRIGHT_BLUE+"New half price: "+Color.YELLOW))
+                                item["price"]["full"] = int(input(Color.BRIGHT_BLUE+"New full price: "+Color.YELLOW))
                             else:
-                                print(Fore.RED + "Invalid choice")
+                                print(Color.RED+"Invalid choice")
                                 return
                         else:
-                            item["price"] = int(input(Fore.LIGHTYELLOW_EX + "New price: "))
+                            item["price"] = int(input(Color.BRIGHT_BLUE+"New price: "+Color.YELLOW))
 
                     except ValueError as e:
-                        print(Fore.RED + "Invalid price")
+                        print(Color.RED+"Invalid price")
                         ReadWrite.log_error(Logs.update_item, str(e), email, Module.update)
                         return
 
                 elif choice == 3 and category in ["starters", "main_course"]:
                     while True:
-                        new_type = input(Fore.BLUE + "New type (veg/non-veg): ").strip().lower()
+                        new_type = input(Color.BRIGHT_BLUE+"New type (veg/non-veg): "+Color.YELLOW).strip().lower()
 
                         if new_type in ["veg", "v"]:
                             item["type"] = "veg"
@@ -230,17 +226,15 @@ class Manage_item:
                             item["type"] = "non-veg"
                             break
                         else:
-                            print(Fore.RED + "Invalid type. Enter veg or non-veg.")
+                            print(Color.RED+"Invalid type. Enter veg or non-veg.")
                 else:
-                    print(Fore.RED + "Invalid option")
+                    print(Color.RED+"Invalid option")
                     return
                 
                 ReadWrite.write_json(data, Path.food_item_path)
                 ReadWrite.write_json(inventory_data, Path.inventory_data_path)
 
-                print(Fore.GREEN+"Menu item & inventory updated successfully")
+                print(Color.GREEN+"Menu item & inventory updated successfully")
                 return
 
-        print(Fore.RED + "Item not found")
-
-    
+        print(Color.RED+"Item not found")

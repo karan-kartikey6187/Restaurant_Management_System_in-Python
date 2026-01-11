@@ -4,8 +4,7 @@ from app.domain.read_write import ReadWrite
 from app.model.json_file import Path
 from app.auth.login import Login
 from app.validation.all_validation import Validation
-from colorama import Fore , init
-init(autoreset=True)
+from app.model.colors import Color
 
 class Main():
     """
@@ -17,19 +16,19 @@ class Main():
         all_data=[]
         while True:
             Menu.main_menu()
-            choice=Validation.menu_choice()
-            if choice==1:
-                Login.login_user() 
-            elif choice==2:
-                data=Staff.register()
-                all_data=ReadWrite.read(Path.staff_data_path)
-                all_data.append(data)
+            choice=Validation.menu_choice() 
+            if choice==1: 
+                Login.login_user()  
+            elif choice==2: 
+                data=Staff.register() 
+                all_data=ReadWrite.read(Path.staff_data_path) 
+                all_data.append(data) 
                 ReadWrite.write_json(all_data,Path.staff_data_path)
             elif choice==3:
-                print(Fore.GREEN+"Exit Successfull....")
+                print(Color.RED+"Exit Successfull...."+Color.RESET)
                 break   
             else:
-                print(Fore.RED+"Please Enter The Number Between(1-3)")
+                print(Color.RED+"Please Enter The Number Between(1-3)"+Color.RESET)
 
 
 

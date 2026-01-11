@@ -1,4 +1,3 @@
-from app.model.json_file import Path
 import json
 import datetime
 import uuid
