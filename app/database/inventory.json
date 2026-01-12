@@ -253,7 +253,7 @@
         {
             "name": "Rasmalai",
             "category": "desserts",
-            "available_half_qty": 154
+            "available_half_qty": 150
         },
         {
             "name": "Kheer",
@@ -293,7 +293,37 @@
         {
             "name": "Chai",
             "category": "drinks",
-            "available_half_qty": 186
+            "available_half_qty": 180
+        },
+        {
+            "name": "Stuffed Paneer Rolls",
+            "category": "starters",
+            "available_half_qty": 300
+        },
+        {
+            "name": "Chicken Handi",
+            "category": "main_course",
+            "available_half_qty": 200
+        },
+        {
+            "name": "Plain Roti",
+            "category": "breads",
+            "available_qty": 200
+        },
+        {
+            "name": "Butter Lachha Paratha",
+            "category": "breads",
+            "available_qty": 250
+        },
+        {
+            "name": "Prawns Fry",
+            "category": "starters",
+            "available_half_qty": 230
+        },
+        {
+            "name": "Prawns Tikka",
+            "category": "starters",
+            "available_half_qty": 160
         }
     ]
 }

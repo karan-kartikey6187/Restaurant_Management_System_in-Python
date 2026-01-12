@@ -98,6 +98,30 @@
                     "half": 120,
                     "full": 200
                 }
+            },
+            {
+                "name": "Stuffed Paneer Rolls",
+                "type": "veg",
+                "price": {
+                    "half": 120,
+                    "full": 210
+                }
+            },
+            {
+                "name": "Prawns Fry",
+                "type": "non-veg",
+                "price": {
+                    "half": 260,
+                    "full": 450
+                }
+            },
+            {
+                "name": "Prawns Tikka",
+                "type": "non-veg",
+                "price": {
+                    "half": 280,
+                    "full": 480
+                }
             }
         ],
         "main_course": [
@@ -220,6 +244,14 @@
                     "half": 110,
                     "full": 180
                 }
+            },
+            {
+                "name": "Chicken Handi",
+                "type": "non-veg",
+                "price": {
+                    "half": 210,
+                    "full": 360
+                }
             }
         ],
         "breads": [
@@ -262,6 +294,14 @@
             {
                 "name": "Cheese Garlic Naan",
                 "price": 100
+            },
+            {
+                "name": "Plain Roti",
+                "price": 25
+            },
+            {
+                "name": "Butter Lachha Paratha",
+                "price": 80
             }
         ],
         "drinks": [

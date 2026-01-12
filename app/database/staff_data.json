@@ -97,5 +97,14 @@
         "experience": 3,
         "password": "Kuldeep@1234",
         "role": "Staff"
+    },
+    {
+        "id": "64a3b05",
+        "name": "vinod kumar",
+        "email": "vinod23@gmail.com",
+        "contact": 4566873343,
+        "experience": 2,
+        "password": "vinod@23",
+        "role": "Staff"
     }
 ]

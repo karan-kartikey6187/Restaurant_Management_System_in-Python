@@ -76,5 +76,11 @@
         "table_name": "T14",
         "capacity": 4,
         "status": "free"
+    },
+    {
+        "table_id": 15,
+        "table_name": "T15",
+        "capacity": 8,
+        "status": "free"
     }
 ]

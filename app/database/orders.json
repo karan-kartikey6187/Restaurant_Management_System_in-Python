@@ -177,6 +177,29 @@
             "payment_method": "cash",
             "paid_at": "2026-01-11 23:46:50",
             "total_amount": 798.0
+        },
+        {
+            "order_id": 6,
+            "reservation_id": "007795",
+            "customer_name": "Yogesh",
+            "table_id": 5,
+            "table_name": "T5",
+            "order_datetime": "2026-01-12 10:56 AM",
+            "order_status": "pending",
+            "items": [
+                {
+                    "item_name": "Chai",
+                    "category": "drinks",
+                    "size": "full",
+                    "quantity": 3
+                },
+                {
+                    "item_name": "Rasmalai",
+                    "category": "desserts",
+                    "size": "full",
+                    "quantity": 2
+                }
+            ]
         }
     ]
 }

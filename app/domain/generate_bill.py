@@ -27,7 +27,7 @@ class GenerateBill:
         
         for category in menu.values():
             for item in category:
-                if item.get("name") == item_name:
+                if item.get("name", "").title() == item_name.title():
                     price_data = item.get("price", {})
                     
                     if isinstance(price_data, dict):
@@ -137,9 +137,9 @@ class GenerateBill:
             )
 
         print(Color.YELLOW + "-" * 60 + Color.RESET)
-        print(Color.GREEN + f"{'Subtotal     ':<44}: Rs{subtotal:10.0f}" + Color.RESET)
-        print(Color.GREEN + f"{'GST @ 5%     ':<44}: Rs{tax_amount:10.0f}" + Color.RESET)
-        print(Color.BOLD + Color.BRIGHT_GREEN + f"{'GRAND TOTAL  ':<44}: Rs{grand_total:10.0f}" + Color.RESET)
+        print(Color.GREEN + f"{'Subtotal                                    ':<44}: Rs{subtotal:10.0f}" + Color.RESET)
+        print(Color.GREEN + f"{'GST @ 5%                                    ':<44}: Rs{tax_amount:10.0f}" + Color.RESET)
+        print(Color.BOLD + Color.BRIGHT_GREEN + f"{'GRAND TOTAL                                 ':<44}: Rs{grand_total:10.0f}" + Color.RESET)
         print(Color.YELLOW + "=" * 60 + Color.RESET)
 
         print(Color.BRIGHT_MAGENTA + "\nBill generated successfully!" + Color.RESET)

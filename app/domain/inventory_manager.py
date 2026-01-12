@@ -3,6 +3,7 @@ from app.model.json_file import Path
 from app.validation.all_validation import Validation
 from app.model.colors import Color
 
+
 class InventoryManager:
     @staticmethod
     def manage_inventory():
@@ -46,7 +47,7 @@ class InventoryManager:
     @staticmethod
     def view_low_stock():
         inventory = InventoryManager.get_inventory()
-        low_stock = [item for item in inventory if item.get("available_half_qty", 0) < 100]
+        low_stock = [item for item in inventory if item.get("available_half_qty", item.get("available_qty", 0)) < 100]
         
         print(Color.RED+"\nLOW STOCK ITEMS (<100):")
         print(Color.BRIGHT_BLUE+"=" * 50)
@@ -55,7 +56,7 @@ class InventoryManager:
             print(Color.WHITE+f"{'No':<4} {'Item':<30} {'Stock'}")
             print(Color.BRIGHT_BLUE+"-" * 50)
             for i, item in enumerate(low_stock):
-                qty = item.get("available_half_qty", 0)
+                qty = item.get("available_half_qty", item.get("available_qty", 0))
                 print(Color.WHITE+f"{i+1:<4} {item.get('name', 'N/A')[:29]:<30} "+Color.RED+f"{qty}")
         else:
             print(Color.GREEN+"No low stock items!")
@@ -72,7 +73,7 @@ class InventoryManager:
         print(Color.BRIGHT_BLUE+"-" * 50)
         
         for i, item in enumerate(inventory):
-            qty = item.get("available_half_qty", 0)
+            qty = item.get("available_half_qty", item.get("available_qty", 0))
             stock_color = Color.RED if qty < 100 else Color.GREEN
             print(Color.WHITE+f"{i+1:<4} {item.get('name', 'N/A')[:29]:<30} {item.get('category', 'N/A'):<15} "+stock_color+f"{qty}")
         
@@ -92,7 +93,7 @@ class InventoryManager:
         print(Color.BRIGHT_BLUE+"-" * 50)
         
         for i, item in enumerate(inventory):
-            qty = item.get("available_half_qty", 0)
+            qty = item.get("available_half_qty", item.get("available_qty", 0))
             stock_color = Color.RED if qty < 100 else Color.GREEN
             print(Color.WHITE+f"{i+1:<4} {item.get('name', 'N/A')[:29]:<30} "+stock_color+f"{qty}")
         
@@ -103,7 +104,7 @@ class InventoryManager:
             if 1 <= choice <= len(inventory):
                 item = inventory[choice-1]
                 item_name = item.get('name', 'Unknown')
-                current_stock = item.get('available_half_qty', 0)
+                current_stock = item.get("available_half_qty", item.get("available_qty", 0))
                 
                 print(Color.YELLOW+f"\n{item_name}")
                 print(Color.CYAN+f"Current Stock: {current_stock}")
@@ -112,7 +113,11 @@ class InventoryManager:
                 
                 if add_qty > 0:
                     new_stock = current_stock + add_qty
-                    item['available_half_qty'] = new_stock
+
+                    if "available_half_qty" in item:
+                        item['available_half_qty'] = new_stock
+                    else:
+                        item['available_qty'] = new_stock
                     InventoryManager.save_inventory(inventory)
                     
                     status = Color.GREEN+"OK" if new_stock >= 100 else Color.RED+"LOW STOCK"
